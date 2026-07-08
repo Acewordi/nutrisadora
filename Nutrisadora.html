@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="icon" href="/favicon.ico" type="image/favicon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabor de Crescer - Receitas que as Crianças Amam | Isadora Roque</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Sora (Premium Headings) & Inter (Clean Body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Sora', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981', // Emerald primary
+                            600: '#059669',
+                            900: '#064e3b',
+                            dark: '#0f172a', // Slate 900
+                            accent: '#f97316', // Orange
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { opacity: 1, boxShadow: '0 0 0 0 rgba(249, 115, 22, 0.7)' },
+                            '50%': { opacity: .9, boxShadow: '0 0 0 20px rgba(249, 115, 22, 0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        
+        /* Custom Utilities for Premium Look */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-mesh {
+            background-color: #f8fafc;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(152, 76%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(28, 100%, 90%, 1) 0px, transparent 50%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        /* FAQ Accordion Transitions */
+        .faq-answer {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px; /* Adjust if content is longer */
+            opacity: 1;
+            margin-top: 1rem;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 antialiased bg-slate-50 selection:bg-brand-500 selection:text-white">
+
+    <!-- Trust Top Bar -->
+    <div class="bg-brand-900 text-brand-50 text-[10px] md:text-xs py-2.5 hidden md:block w-full shadow-inner">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center font-bold tracking-widest uppercase">
+            <span class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-400"></i> Compra 100% Segura</span>
+            <span class="flex items-center gap-2"><i class="fa-solid fa-bolt text-brand-400"></i> Acesso Imediato</span>
+            <span class="flex items-center gap-2"><i class="fa-regular fa-credit-card text-brand-400"></i> Em até 5x no Cartão</span>
+            <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-brand-400"></i> Garantia de 7 Dias</span>
+        </div>
+    </div>
+
+    <!-- Clean Navbar -->
+    <nav class="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 py-4 transition-all shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="font-heading font-extrabold text-xl md:text-2xl text-brand-dark tracking-tight">
+                    <i class="fa-solid fa-leaf text-brand-500 mr-1"></i> Isadora Roque
+                </span>
+            </div>
+            <a href="#oferta" class="bg-brand-accent hover:bg-orange-600 text-white px-5 py-2.5 rounded-full font-bold transition flex items-center gap-2 text-sm shadow-md">
+                Garantir Acesso <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-16 pb-24 lg:pt-28 lg:pb-32 overflow-hidden bg-mesh">
+        <!-- Background decorative elements -->
+        <div class="absolute top-20 left-10 w-64 h-64 bg-brand-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style="animation-delay: 0s;"></div>
+        <div class="absolute bottom-20 right-10 w-72 h-72 bg-brand-accent rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style="animation-delay: 2s;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Text Content -->
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-gray-200 text-brand-dark font-semibold px-4 py-2 rounded-full text-sm mb-8 shadow-sm">
+                        <span class="relative flex h-3 w-3">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-500 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-500"></span>
+                        </span>
+                        Aprovado por milhares de mães e pais
+                    </div>
+                    
+                    <h1 class="font-heading text-4xl md:text-5xl lg:text-[4rem] font-extrabold text-brand-dark leading-[1.1] mb-6 tracking-tight">
+                        Transforme a refeição no <span class="bg-gradient-to-r from-brand-500 to-teal-400 text-gradient">momento favorito</span> do seu filho.
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0">
+                        O método definitivo <strong>"Sabor de Crescer"</strong> com receitas deliciosas, nutritivas e imunes a birras. Diga adeus à recusa alimentar em poucos dias.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start items-center">
+                        <a href="#oferta" class="w-full sm:w-auto animate-pulse-glow bg-brand-accent hover:bg-orange-600 text-white font-heading font-bold text-lg py-5 px-10 rounded-2xl shadow-[0_0_40px_-10px_rgba(249,115,22,0.8)] transition-all transform hover:-translate-y-1 text-center flex items-center justify-center gap-3">
+                            QUERO AS RECEITAS AGORA
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-gray-500 font-semibold">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved text-brand-500 text-lg"></i>
+                            <span>Risco Zero: 7 dias de garantia</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-medal text-brand-accent text-lg"></i>
+                            <span>Método testado e validado</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Image/Mockup area -->
+                <div class="lg:w-1/2 relative w-full">
+                    <!-- Main Image Plate -->
+                    <div class="relative z-10 w-full aspect-square md:aspect-auto md:h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl transform lg:-rotate-2 hover:rotate-0 transition duration-700">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Prato saudável infantil" class="w-full h-full object-cover">
+                        <!-- Gradient Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    </div>
+                    
+                    <!-- Floating Elements for Premium Feel -->
+                    <div class="absolute top-10 -left-8 md:-left-12 glass-card p-4 rounded-2xl shadow-xl z-20 animate-float" style="animation-delay: 1s;">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-green-100 p-3 rounded-full text-brand-500">
+                                <i class="fa-solid fa-leaf text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-heading font-bold text-gray-800 text-sm">100% Naturais</p>
+                                <p class="text-xs text-gray-500">Sem ultraprocessados</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="absolute bottom-16 -right-4 md:-right-8 glass-card p-4 rounded-2xl shadow-xl z-20 animate-float">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-orange-100 p-3 rounded-full text-brand-accent">
+                                <i class="fa-solid fa-clock text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-heading font-bold text-gray-800 text-sm">Receitas Rápidas</p>
+                                <p class="text-xs text-gray-500">Prontas em 15 min</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Cloud (Social Proof) -->
+    <div class="border-y border-gray-200 bg-white py-8">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="text-center text-sm font-semibold text-gray-400 mb-6 uppercase tracking-wider">Criado com base na experiência em instituições renomadas</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale">
+                <div class="font-heading font-bold text-xl flex items-center gap-2"><i class="fa-solid fa-school"></i> Mundo Kids</div>
+                <div class="font-heading font-bold text-xl flex items-center gap-2"><i class="fa-solid fa-building-columns"></i> Celso Lisboa</div>
+                <div class="font-heading font-bold text-xl flex items-center gap-2"><i class="fa-solid fa-school-flag"></i> Faria Brito</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Section -->
+    <section class="py-20 bg-brand-50 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-500 opacity-5 rounded-full blur-3xl"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-10">
+                <span class="bg-brand-100 text-brand-600 font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-widest shadow-sm">Análise Rápida</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-brand-dark mt-4 mb-4">A alimentação do seu filho precisa de uma nova abordagem?</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Responda a estas 3 perguntas simples para entendermos o cenário atual da sua casa e descobrirmos a melhor solução.</p>
+            </div>
+
+            <div id="quiz-container" class="bg-white p-6 md:p-10 rounded-[2rem] shadow-xl border border-brand-100 max-w-2xl mx-auto text-center transition-all duration-300">
+                <!-- Progress Bar -->
+                <div class="w-full bg-gray-100 rounded-full h-2.5 mb-6 overflow-hidden">
+                    <div id="quiz-progress-bar" class="bg-brand-500 h-2.5 rounded-full transition-all duration-500 ease-out" style="width: 33%"></div>
+                </div>
+                
+                <div id="quiz-progress-text" class="text-xs font-bold text-gray-400 mb-6 uppercase tracking-widest">Pergunta 1 de 3</div>
+                
+                <div class="min-h-[100px] flex items-center justify-center">
+                    <h3 id="quiz-question" class="font-heading text-xl md:text-2xl font-semibold text-brand-dark leading-snug transition-opacity duration-300">
+                        Como o seu filho reage quando vê um vegetal ou alimento novo no prato?
+                    </h3>
+                </div>
+                
+                <div id="quiz-options" class="flex flex-col gap-4 mt-6">
+                    <!-- Botões renderizados dinamicamente pelo JS -->
+                </div>
+            </div>
+
+            <!-- Quiz Loading (Novo) -->
+            <div id="quiz-loading" class="hidden bg-white p-12 rounded-[2rem] shadow-xl border border-brand-100 max-w-2xl mx-auto text-center">
+                <div class="w-16 h-16 border-4 border-brand-100 border-t-brand-500 rounded-full animate-spin mx-auto mb-6"></div>
+                <h3 class="font-heading text-2xl font-bold text-brand-dark mb-2">Analisando suas respostas...</h3>
+                <p class="text-gray-500">Buscando a melhor abordagem para o seu caso.</p>
+            </div>
+
+            <!-- Quiz Result -->
+            <div id="quiz-result" class="hidden bg-white p-8 md:p-12 rounded-[2rem] shadow-2xl border-2 border-brand-500 max-w-2xl mx-auto text-center relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-500 opacity-10 rounded-bl-[100px] -z-0"></div>
+                <div class="w-20 h-20 bg-brand-100 text-brand-500 rounded-full flex items-center justify-center text-4xl mx-auto mb-6 relative z-10">
+                    <i class="fa-solid fa-clipboard-check"></i>
+                </div>
+                <h3 id="result-title" class="font-heading text-2xl font-bold text-brand-dark mb-4 relative z-10">Diagnóstico Concluído!</h3>
+                <p id="result-text" class="text-gray-600 mb-8 leading-relaxed relative z-10">Pelas suas respostas, identificamos que a rotina alimentar está gerando um estresse desnecessário. O <strong>Sabor de Crescer</strong> é exatamente o que você precisa.</p>
+                <a href="#oferta" class="inline-block animate-pulse-glow bg-brand-accent hover:bg-orange-600 text-white font-bold text-lg py-4 px-8 rounded-xl transition transform hover:-translate-y-1 shadow-lg relative z-10">
+                    Quero ver a solução exata para mim
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points Section (Bento Style) -->
+    <section class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-heading text-3xl md:text-5xl font-bold text-brand-dark mb-6 leading-tight">
+                    O seu dia a dia se parece com isso?
+                </h2>
+                <p class="text-lg text-gray-500">Se a hora de comer virou um momento de estresse e choro, preste muita atenção nestes sinais.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-gray-100 hover:shadow-xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-red-100 text-red-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-face-tired"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3 text-brand-dark">Recusa Absoluta</h3>
+                    <p class="text-gray-600 leading-relaxed">A boca fechada e a birra ao ver qualquer vegetal ou alimento novo. Você faz de tudo, mas ele só quer o "mesmo de sempre".</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-gray-100 hover:shadow-xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-orange-100 text-brand-accent rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3 text-brand-dark">Culpa e Falta de Tempo</h3>
+                    <p class="text-gray-600 leading-relaxed">Rotina exaustiva que te obriga a recorrer a ultraprocessados por praticidade, gerando um sentimento enorme de culpa.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-gray-100 hover:shadow-xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-purple-100 text-purple-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3 text-brand-dark">Falta de Criatividade</h3>
+                    <p class="text-gray-600 leading-relaxed">Sente que já não tem mais ideias para inovar. Acaba fazendo sempre o básico, o que diminui o interesse da criança pela refeição.</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <p class="text-xl md:text-2xl font-heading font-semibold text-brand-dark">
+                    Existe um caminho <span class="text-brand-500">muito mais leve e saudável</span>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Reveal (Premium Mockup Layout) -->
+    <section class="py-24 bg-brand-dark text-white relative overflow-hidden">
+        <!-- Glowing bg -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-500 rounded-full mix-blend-screen filter blur-[120px] opacity-20"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Digital Product Mockup -->
+                <div class="relative flex justify-center order-2 lg:order-1">
+                    <!-- Base tablet/ebook representation using pure CSS for a premium look -->
+                    <div class="w-72 md:w-96 h-[30rem] md:h-[40rem] bg-gradient-to-br from-brand-900 to-black rounded-[3rem] border-8 border-gray-800 shadow-2xl relative overflow-hidden flex flex-col transform -rotate-2 hover:rotate-0 transition duration-500 shadow-brand-500/20">
+                        <!-- Top Notch -->
+                        <div class="absolute top-0 inset-x-0 h-6 bg-gray-800 rounded-b-2xl w-32 mx-auto z-20"></div>
+                        
+                        <!-- Content inside "screen" -->
+                        <div class="flex-1 bg-white m-2 rounded-[2rem] overflow-hidden flex flex-col relative">
+                            <div class="h-1/2 bg-brand-100 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute w-40 h-40 bg-brand-accent rounded-full filter blur-3xl opacity-30"></div>
+                                <h3 class="font-heading text-4xl font-black text-brand-900 text-center leading-none z-10">Sabor<br>de<br>Crescer</h3>
+                            </div>
+                            <div class="h-1/2 bg-white p-8 flex flex-col justify-center text-center">
+                                <i class="fa-solid fa-book-open text-3xl text-brand-500 mb-4"></i>
+                                <p class="text-gray-800 font-bold mb-1">O Guia Definitivo</p>
+                                <p class="text-sm text-gray-500">Por Isadora Roque</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <div class="order-1 lg:order-2">
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6">
+                        Apresentando o <br>
+                        <span class="bg-gradient-to-r from-brand-400 to-green-200 text-gradient">Sabor de Crescer</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-10 leading-relaxed">
+                        Um material completo, direto ao ponto, criado por quem vive a rotina alimentar infantil na prática, validado por dezenas de escolas e centenas de famílias.
+                    </p>
+
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-5">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-xl text-brand-400 backdrop-blur-md border border-white/10">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading text-xl font-bold text-white">Visual que Desperta o Apetite</h4>
+                                <p class="text-gray-400 mt-2">Pratos coloridos, texturas pensadas e montagens recreativas que vencem a barreira visual da criança.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-5">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-xl text-brand-400 backdrop-blur-md border border-white/10">
+                                <i class="fa-solid fa-puzzle-piece"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading text-xl font-bold text-white">Estratégias Recreativas e Comprovadas</h4>
+                                <p class="text-gray-400 mt-2">Técnicas simples para introduzir novos alimentos de forma leve, fazendo com que a criança sinta vontade natural de provar.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-5">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-xl text-brand-400 backdrop-blur-md border border-white/10">
+                                <i class="fa-solid fa-stopwatch"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading text-xl font-bold text-white">Praticidade Real para Pais Reais</h4>
+                                <p class="text-gray-400 mt-2">Ingredientes de supermercado comum. Sem itens caros e impossíveis de achar. Sujou pouca panela e ficou pronto rápido.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authority Section (High-End Profiling) -->
+    <section class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-slate-50 rounded-[3rem] p-8 md:p-16 border border-gray-100 flex flex-col lg:flex-row items-center gap-16 relative">
+                
+                <!-- Graphic Elements -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-100 rounded-bl-[100px] -z-0"></div>
+
+                <!-- Author Image container with premium styling -->
+                <div class="lg:w-2/5 relative z-10 flex justify-center">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-500 to-transparent rounded-full opacity-20 filter blur-2xl"></div>
+                    <!-- IMAGEM DA CLIENTE -->
+                    <img src="https://i.imgur.com/o6VKwkE.png" alt="Isadora Roque" class="relative z-10 w-full max-w-[320px] drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
+                    
+                    <!-- Badge Overlays -->
+                    <div class="absolute bottom-10 -left-6 bg-white p-3 rounded-xl shadow-lg border border-gray-100 flex items-center gap-2 z-20">
+                        <div class="w-8 h-8 bg-brand-100 text-brand-600 rounded-lg flex items-center justify-center">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div class="text-xs font-bold leading-tight">Nutricionista<br>Especialista</div>
+                    </div>
+                </div>
+                
+                <!-- Copy -->
+                <div class="lg:w-3/5 relative z-10">
+                    <p class="text-brand-500 font-bold tracking-widest uppercase text-sm mb-2">A sua mentora nesta jornada</p>
+                    <h2 class="font-heading text-3xl md:text-5xl font-extrabold text-brand-dark mb-6 leading-tight">
+                        Isadora Roque.
+                    </h2>
+                    
+                    <div class="space-y-4 text-lg text-gray-600 mb-8 leading-relaxed">
+                        <p>
+                            Sou graduada em Nutrição pelo <strong>Centro Universitário Celso Lisboa</strong>. Nos últimos anos, dediquei minha carreira a entender profundamente a relação das crianças com a comida.
+                        </p>
+                        <p>
+                            Atuando como <strong>Nutricionista Escolar</strong> em instituições de peso, como as Creches Escola <em>Mundo Kids</em> e <em>Faria Brito</em>, criei cardápios, gerenciei cozinhas e, principalmente: <strong>vi na prática o que faz uma criança rejeitar ou amar um alimento.</strong>
+                        </p>
+                    </div>
+                    
+                    <!-- Stats / Mini Bento -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                            <i class="fa-solid fa-kitchen-set text-brand-accent text-2xl mb-2"></i>
+                            <h4 class="font-bold text-brand-dark">Cozinha Experimental</h4>
+                            <p class="text-sm text-gray-500 mt-1">Metodologia aplicada com sucesso nas escolas.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                            <i class="fa-solid fa-clipboard-list text-brand-500 text-2xl mb-2"></i>
+                            <h4 class="font-bold text-brand-dark">Gestão de Cardápios</h4>
+                            <p class="text-sm text-gray-500 mt-1">Especialista em planejamento e restrições alimentares.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonus Section -->
+    <section class="py-24 bg-brand-dark text-white relative">
+        <!-- Slanted background cut -->
+        <div class="absolute top-0 inset-x-0 h-16 bg-white transform -skew-y-2 origin-top-left z-0"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-8">
+            <div class="text-center mb-16">
+                <span class="bg-brand-accent/20 text-brand-accent font-bold px-4 py-2 rounded-full text-sm uppercase tracking-wider">Presentes Especiais</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-bold mt-6 mb-4">
+                    Garantindo hoje, você leva esses <br><span class="text-brand-400">Bônus Premium</span>
+                </h2>
+                <p class="text-gray-400 text-lg">Materiais complementares focados em acelerar seus resultados.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Bonus 1 -->
+                <div class="bg-slate-800 rounded-3xl p-8 border border-slate-700 relative overflow-hidden group hover:border-brand-500 transition duration-300">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-500/10 rounded-full blur-2xl group-hover:bg-brand-500/20 transition"></div>
+                    <div class="text-5xl text-brand-400 mb-6"><i class="fa-solid fa-box-open"></i></div>
+                    <h3 class="font-heading text-2xl font-bold mb-3">Guia da Lancheira Perfeita</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">Fórmulas prontas para montar lancheiras escolares que não voltam cheias para casa. Nutritivas, práticas e que sobrevivem ao calor.</p>
+                    
+                    <div class="flex items-center gap-3 mt-auto">
+                        <span class="text-gray-500 line-through text-sm font-bold">Vendido por R$ 47,00</span>
+                        <span class="bg-brand-500 text-white px-3 py-1 rounded-lg text-sm font-bold">Hoje: R$ 0,00</span>
+                    </div>
+                </div>
+
+                <!-- Bonus 2 -->
+                <div class="bg-slate-800 rounded-3xl p-8 border border-slate-700 relative overflow-hidden group hover:border-brand-accent transition duration-300">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-accent/10 rounded-full blur-2xl group-hover:bg-brand-accent/20 transition"></div>
+                    <div class="text-5xl text-brand-accent mb-6"><i class="fa-solid fa-calendar-check"></i></div>
+                    <h3 class="font-heading text-2xl font-bold mb-3">Planner Semanal Organizado</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">Um planner muito prático para organizar todas as refeições da semana, otimizar a lista do supermercado e libertar a sua mente.</p>
+                    
+                    <div class="flex items-center gap-3 mt-auto">
+                        <span class="text-gray-500 line-through text-sm font-bold">Vendido por R$ 37,00</span>
+                        <span class="bg-brand-500 text-white px-3 py-1 rounded-lg text-sm font-bold">Hoje: R$ 0,00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing / Offer Section (High-Converting Ticket) -->
+    <section id="oferta" class="py-24 bg-slate-50 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden relative">
+                
+                <!-- Ribbon -->
+                <div class="absolute top-6 right-0 bg-brand-accent text-white font-bold py-2 px-10 shadow-lg transform rotate-45 translate-x-10 translate-y-2 z-20 w-48 text-center uppercase tracking-wider text-xs">
+                    50% OFF
+                </div>
+
+                <div class="flex flex-col lg:flex-row">
+                    <!-- Offer Details (Left) -->
+                    <div class="lg:w-3/5 p-10 lg:p-16">
+                        <h2 class="font-heading text-3xl font-black text-brand-dark mb-4 leading-tight">Libere seu acesso completo agora.</h2>
+                        <p class="text-gray-500 mb-8">Tudo que você precisa para mudar a alimentação do seu filho de uma vez por todas.</p>
+                        
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-500 text-xl"></i>
+                                <span class="font-medium text-gray-700">Guia "Sabor de Crescer" com +50 receitas</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-500 text-xl"></i>
+                                <span class="font-medium text-gray-700">Técnicas recreativas para introdução alimentar</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-500 text-xl"></i>
+                                <span class="font-medium text-gray-700"><span class="font-bold text-brand-accent">Bônus:</span> Guia da Lancheira</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-500 text-xl"></i>
+                                <span class="font-medium text-gray-700"><span class="font-bold text-brand-accent">Bônus:</span> Planner Semanal Organizado</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-500 text-xl"></i>
+                                <span class="font-medium text-gray-700"><span class="font-bold text-brand-accent">Bônus:</span> Receitas em Vídeo</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-500 text-xl"></i>
+                                <span class="font-medium text-gray-700">Acesso vitalício ao material</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Price Tag (Right) -->
+                    <div class="lg:w-2/5 bg-slate-900 p-10 lg:p-16 flex flex-col justify-center text-center relative overflow-hidden">
+                        <!-- Abstract bg inside pricing -->
+                        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+                        
+                        <div class="relative z-10 text-white">
+                            <div class="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 text-green-400 px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
+                                <i class="fa-solid fa-lock"></i> Compra Segura Kirvano
+                            </div>
+                            
+                            <p class="text-gray-400 font-medium mb-2">Preço normal: <span class="line-through">R$ 97,00</span></p>
+                            
+                            <p class="text-sm font-bold text-brand-400 uppercase tracking-widest mb-2">Por apenas</p>
+                            <div class="flex justify-center items-start gap-1 mb-2">
+                                <span class="text-2xl font-bold mt-2">R$</span>
+                                <span class="text-[5rem] font-black leading-none font-heading text-white">47</span>
+                                <span class="text-2xl font-bold mt-2">,00</span>
+                            </div>
+                            <p class="text-gray-400 text-sm mb-8">Ou em até 5x no cartão</p>
+                            
+                            <a href="#" class="w-full inline-block bg-brand-500 hover:bg-brand-400 text-white font-heading font-extrabold text-xl py-5 px-6 rounded-2xl shadow-xl transition transform hover:scale-105 hover:-translate-y-1">
+                                COMPRAR AGORA
+                            </a>
+                            
+                            <div class="mt-6 flex items-center justify-center gap-4 text-gray-400 text-xl">
+                                <i class="fa-brands fa-cc-mastercard"></i>
+                                <i class="fa-brands fa-cc-visa"></i>
+                                <i class="fa-brands fa-pix"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-10 bg-brand-50/50 p-8 md:p-12 rounded-[2rem] border border-brand-100">
+                <div class="w-40 h-40 flex-shrink-0 flex items-center justify-center bg-white rounded-full shadow-[0_10px_40px_rgba(16,185,129,0.2)]">
+                    <i class="fa-solid fa-shield-halved text-[5rem] text-brand-500"></i>
+                </div>
+                <div class="text-center md:text-left">
+                    <h3 class="font-heading text-2xl md:text-3xl font-black text-brand-dark mb-4">Garantia Incondicional de 7 Dias</h3>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        O risco é todo meu. Acesse o <strong>Sabor de Crescer</strong> hoje. Se em até 7 dias você achar que o material não ajudou na alimentação do seu filho, basta me enviar um único e-mail e eu devolvo 100% do seu investimento. Sem letras miúdas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Interactive -->
+    <section class="py-24 bg-slate-50 border-t border-gray-200">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 bg-white border border-gray-200 text-brand-500 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
+                    <i class="fa-solid fa-microscope"></i> Nutrição Baseada em Evidências
+                </div>
+                <h2 class="font-heading text-3xl md:text-4xl font-black text-brand-dark">Dúvidas Frequentes</h2>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item bg-white rounded-2xl border border-gray-200 p-6 cursor-pointer hover:border-brand-300 transition" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-heading font-bold text-brand-dark text-lg">As receitas usam ingredientes caros ou difíceis?</h4>
+                        <i class="fa-solid fa-chevron-down text-brand-500 faq-icon transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600 text-sm md:text-base leading-relaxed">De forma alguma. Criei todas as receitas pensando na rotina corrida da família brasileira. Usamos ingredientes acessíveis que você encontra no mercado da esquina ou na feira.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 (Atualizado Idade) -->
+                <div class="faq-item bg-white rounded-2xl border border-gray-200 p-6 cursor-pointer hover:border-brand-300 transition" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-heading font-bold text-brand-dark text-lg">Para que idade este guia é recomendado?</h4>
+                        <i class="fa-solid fa-chevron-down text-brand-500 faq-icon transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600 text-sm md:text-base leading-relaxed">O material principal foi desenhado estrategicamente para crianças <strong>a partir dos 2 anos</strong>, que é exatamente quando a seletividade e a recusa alimentar costumam dar os primeiros sinais mais fortes.<br><br>No entanto, caso você tenha um bebê, fique tranquila: incluímos um <strong>Guia Bônus exclusivo focado em Introdução Alimentar</strong> para garantir que a base seja bem feita desde os primeiros meses!</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 (Nova Credibilidade) -->
+                <div class="faq-item bg-white rounded-2xl border border-gray-200 p-6 cursor-pointer hover:border-brand-300 transition" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-heading font-bold text-brand-dark text-lg">O método possui embasamento profissional?</h4>
+                        <i class="fa-solid fa-chevron-down text-brand-500 faq-icon transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600 text-sm md:text-base leading-relaxed">Com certeza. O <em>Sabor de Crescer</em> não é um aglomerado de receitas da internet. É a compilação do trabalho de anos como Nutricionista Escolar, gerindo a alimentação de centenas de crianças em creches de referência. Todas as dinâmicas e pratos foram testados e validados no "campo de batalha" diário com as crianças.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item bg-white rounded-2xl border border-gray-200 p-6 cursor-pointer hover:border-brand-300 transition" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-heading font-bold text-brand-dark text-lg">Como recebo o acesso ao material?</h4>
+                        <i class="fa-solid fa-chevron-down text-brand-500 faq-icon transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600 text-sm md:text-base leading-relaxed">O produto é 100% digital. Imediatamente após a confirmação do pagamento (em casos de Pix ou Cartão), você receberá no seu e-mail cadastrado o link seguro da Kirvano para acessar todo o material.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Subtle Medical Warning -->
+            <div class="mt-12 bg-orange-50/50 border border-orange-100 p-6 rounded-2xl text-center md:text-left flex flex-col md:flex-row items-center gap-6 shadow-sm">
+                <div class="text-orange-300 text-4xl flex-shrink-0">
+                    <i class="fa-solid fa-hand-holding-medical"></i>
+                </div>
+                <div>
+                    <h5 class="font-bold text-brand-dark mb-1">Aviso de Cuidado e Amor</h5>
+                    <p class="text-gray-500 text-sm leading-relaxed">A saúde e o bem-estar do seu pequeno são a nossa prioridade. O guia oferece ideias incríveis, mas se houver qualquer suspeita de alergia alimentar, é fundamental procurar o aconselhamento do seu pediatra. Caso a criança já tenha alguma restrição diagnosticada, avalie com cuidado a lista de ingredientes antes do preparo e adapte a receita omitindo os itens não recomendados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 text-center border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4">
+            <h3 class="font-heading text-white text-2xl font-bold mb-6">Nutricionista Isadora Roque</h3>
+            <div class="flex justify-center gap-4 mb-8">
+                <a href="https://www.instagram.com/isanutrinfantil/" target="_blank" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center hover:bg-brand-500 hover:text-white transition duration-300 text-xl"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <div class="text-xs space-y-2 text-slate-500 max-w-2xl mx-auto mb-6">
+                <p>O "Sabor de Crescer" é um material educativo focado em educação alimentar infantil. As informações contidas neste guia são de caráter informativo e não substituem, em nenhuma hipótese, a avaliação, diagnóstico ou acompanhamento do seu pediatra ou nutricionista individual.</p>
+            </div>
+            <div class="text-sm border-t border-slate-800 pt-6">
+                <p>Copyright © 2026 Nutricionista Isadora Roque. Todos os direitos reservados.</p>
+                <div class="mt-4 flex justify-center gap-6 text-xs font-semibold uppercase tracking-wider">
+                    <button onclick="openModal('modal-termos')" class="hover:text-brand-400 transition">Termos de Uso</button>
+                    <button onclick="openModal('modal-privacidade')" class="hover:text-brand-400 transition">Políticas de Privacidade</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals (Termos & Privacidade) -->
+    <div id="modal-termos" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-slate-900/70 backdrop-blur-sm" onclick="closeModal('modal-termos')"></div>
+        <div class="bg-white rounded-[2rem] shadow-2xl w-full max-w-3xl max-h-[85vh] overflow-y-auto relative z-10 p-8 md:p-12 text-left">
+            <button onclick="closeModal('modal-termos')" class="absolute top-6 right-6 w-10 h-10 bg-slate-100 hover:bg-brand-100 hover:text-brand-600 text-gray-500 rounded-full flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h2 class="font-heading text-3xl font-black text-brand-dark mb-6">Termos de Uso</h2>
+            <div class="space-y-5 text-gray-600 text-sm md:text-base leading-relaxed">
+                <p><strong>1. Aceitação dos Termos</strong><br>Ao acessar e adquirir o material digital "Sabor de Crescer", você concorda em cumprir estes termos de serviço, bem como todas as leis e regulamentos aplicáveis. Se não concordar com algum destes termos, está proibido de usar ou acessar este material.</p>
+                <p><strong>2. Uso da Licença e Direitos Autorais</strong><br>É concedida permissão para baixar uma cópia do material para visualização transitória pessoal e não comercial. Esta é a concessão de uma licença, não uma transferência de título. Você não pode: modificar ou copiar os materiais; usá-los para qualquer finalidade comercial; remover quaisquer direitos autorais ou outras notações de propriedade; ou transferir os materiais para outra pessoa.</p>
+                <p><strong>3. Isenção de Responsabilidade (Saúde)</strong><br>Os materiais são fornecidos "como estão". O conteúdo é puramente educativo e não substitui a orientação médica ou nutricional presencial. Em caso de alergias alimentares (como APLV, doença celíaca, etc), o cuidador deve sempre ler os rótulos dos ingredientes e consultar o pediatra antes da introdução de novas receitas.</p>
+                <p><strong>4. Política de Reembolso</strong><br>Oferecemos uma garantia incondicional de 7 dias. O reembolso pode ser solicitado diretamente pela plataforma de pagamento dentro deste prazo, sem a necessidade de justificativa.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-privacidade" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-slate-900/70 backdrop-blur-sm" onclick="closeModal('modal-privacidade')"></div>
+        <div class="bg-white rounded-[2rem] shadow-2xl w-full max-w-3xl max-h-[85vh] overflow-y-auto relative z-10 p-8 md:p-12 text-left">
+            <button onclick="closeModal('modal-privacidade')" class="absolute top-6 right-6 w-10 h-10 bg-slate-100 hover:bg-brand-100 hover:text-brand-600 text-gray-500 rounded-full flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h2 class="font-heading text-3xl font-black text-brand-dark mb-6">Política de Privacidade</h2>
+            <div class="space-y-5 text-gray-600 text-sm md:text-base leading-relaxed">
+                <p><strong>Compromisso com a LGPD</strong><br>A sua privacidade é importante para nós. É nossa política respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar neste site, em total conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).</p>
+                <p><strong>Coleta de Dados</strong><br>Solicitamos informações pessoais, como nome e e-mail, apenas quando realmente precisamos delas para lhe fornecer o serviço (ex: envio do acesso ao e-book após a compra). Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento.</p>
+                <p><strong>Uso e Retenção</strong><br>Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Os dados de pagamento são processados por plataforma terceirizada segura (Kirvano), não armazenamos números de cartão de crédito no nosso banco de dados.</p>
+                <p><strong>Compartilhamento</strong><br>Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5521988208006?text=Olá! Vi seus conteúdos e me interessei em um dos seus guias. Pode me enviar mais informações e como faço para adquirir%3F" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-[0_10px_25px_rgba(37,211,102,0.5)] hover:bg-[#1ebd5a] transition transform hover:scale-110 z-50">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // FAQ Logic
+        function toggleFaq(element) {
+            const allItems = document.querySelectorAll('.faq-item');
+            allItems.forEach(item => {
+                if (item !== element) {
+                    item.classList.remove('active');
+                }
+            });
+            element.classList.toggle('active');
+        }
+
+        // Quiz Logic Inteligente e Dinâmico
+        const quizData = [
+            {
+                question: "Como o seu filho reage quando vê um vegetal ou alimento novo no prato?",
+                options: [
+                    { text: "Chora, fecha a boca ou recusa imediatamente", profile: "atrito" },
+                    { text: "Até prova, mas logo desiste e quer o de sempre", profile: "tempo" },
+                    { text: "Come bem, mas sinto que falta variedade nutritiva", profile: "prevencao" }
+                ]
+            },
+            {
+                question: "Como você se sente hoje na hora de preparar as refeições diárias?",
+                options: [
+                    { text: "Exausta. Acabo fazendo o básico/ultraprocessado", profile: "tempo" },
+                    { text: "Estressada, pois sei que vai haver briga para comer", profile: "atrito" },
+                    { text: "Tranquila, mas busco mais criatividade infantil", profile: "prevencao" }
+                ]
+            },
+            {
+                question: "Qual é o seu maior desejo hoje para a alimentação dele(a)?",
+                options: [
+                    { text: "Acabar com as birras e fazê-lo comer vegetais", profile: "atrito" },
+                    { text: "Ter receitas rápidas, saudáveis e sem complicação", profile: "tempo" },
+                    { text: "Criar uma base forte para ele comer de tudo no futuro", profile: "prevencao" }
+                ]
+            }
+        ];
+        
+        let currentQuestion = 0;
+        let scores = { atrito: 0, tempo: 0, prevencao: 0 };
+
+        function renderQuestion() {
+            const questionObj = quizData[currentQuestion];
+            document.getElementById('quiz-question').innerText = questionObj.question;
+            
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+            
+            questionObj.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = "w-full border-2 border-gray-100 hover:border-brand-500 hover:bg-brand-50 text-gray-700 text-left font-bold py-4 px-6 rounded-xl transition duration-300 flex items-center justify-between group";
+                btn.innerHTML = `<span>${opt.text}</span> <i class="fa-solid fa-chevron-right text-gray-300 group-hover:text-brand-500 transition"></i>`;
+                btn.onclick = () => handleAnswer(opt.profile);
+                optionsContainer.appendChild(btn);
+            });
+
+            document.getElementById('quiz-progress-text').innerText = `Pergunta ${currentQuestion + 1} de ${quizData.length}`;
+            document.getElementById('quiz-progress-bar').style.width = `${((currentQuestion + 1) / quizData.length) * 100}%`;
+        }
+
+        function handleAnswer(profile) {
+            scores[profile]++;
+            currentQuestion++;
+            
+            const questionElement = document.getElementById('quiz-question');
+            const optionsContainer = document.getElementById('quiz-options');
+            
+            // Fade out
+            questionElement.style.opacity = 0;
+            optionsContainer.style.opacity = 0;
+            
+            setTimeout(() => {
+                if (currentQuestion < quizData.length) {
+                    renderQuestion();
+                    questionElement.style.opacity = 1;
+                    optionsContainer.style.opacity = 1;
+                } else {
+                    showLoadingAndResult();
+                }
+            }, 300);
+        }
+
+        function showLoadingAndResult() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            const loadingBlock = document.getElementById('quiz-loading');
+            const resultBlock = document.getElementById('quiz-result');
+            
+            loadingBlock.classList.remove('hidden');
+            
+            // Simulando processamento inteligente de 2 segundos
+            setTimeout(() => {
+                loadingBlock.classList.add('hidden');
+                
+                // Definindo texto dinâmico baseado na maior pontuação
+                let dominantProfile = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+                const resultTitle = document.getElementById('result-title');
+                const resultText = document.getElementById('result-text');
+
+                if (dominantProfile === 'atrito') {
+                    resultTitle.innerText = "Diagnóstico: Ciclo de Recusa Identificado";
+                    resultText.innerHTML = "Pelas suas respostas, o seu foco deve ser quebrar o atrito visual e a birra. O método <strong>Sabor de Crescer</strong> usa técnicas lúdicas de Educação Alimentar para despertar o interesse da criança de forma passiva, sem choro e sem forçar.";
+                } else if (dominantProfile === 'tempo') {
+                    resultTitle.innerText = "Diagnóstico: Exaustão da Rotina";
+                    resultText.innerHTML = "Notamos que a falta de tempo e a culpa são seus maiores desafios. O <strong>Sabor de Crescer</strong> traz a praticidade que você precisa: receitas prontas em 15 minutos, ingredientes fáceis e o Planner Semanal Bônus para você nunca mais pensar 'o que vou fazer hoje?'.";
+                } else {
+                    resultTitle.innerText = "Diagnóstico: Prevenção e Variedade";
+                    resultText.innerHTML = "Excelente! Você já tem uma boa base, mas precisa inovar para manter o interesse infantil. O <strong>Sabor de Crescer</strong> vai te dar um arsenal de receitas criativas, texturas variadas e montagens divertidas para o seu filho amar comer saudável todos os dias.";
+                }
+
+                resultBlock.classList.remove('hidden');
+            }, 2000);
+        }
+
+        // Initialize quiz
+        window.onload = () => {
+            renderQuestion();
+        };
+
+        // Modal Logic
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            // Small delay to allow display block to apply before opacity transition
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300); // Matches transition duration
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+    </script>
+</body>
+</html>
