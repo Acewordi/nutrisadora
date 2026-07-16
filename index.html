@@ -7,8 +7,8 @@
     <title>Sabor de Crescer - Receitas que as Crianças Amam | Isadora Roque</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Sora (Premium Headings) & Inter (Clean Body) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Sora (Premium Headings), Inter (Clean Body) & Playfair Display (Elegant Logo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -19,6 +19,7 @@
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         heading: ['Sora', 'sans-serif'],
+                        logo: ['"Playfair Display"', 'serif'],
                     },
                     colors: {
                         brand: {
@@ -90,22 +91,22 @@
 </head>
 <body class="font-sans text-gray-700 antialiased bg-slate-50 selection:bg-brand-500 selection:text-white">
 
-    <!-- Trust Top Bar -->
+    <!-- Trust Top Bar (Oculto em Smartphones) -->
     <div class="bg-brand-900 text-brand-50 text-[10px] md:text-xs py-2.5 hidden md:block w-full shadow-inner">
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center font-bold tracking-widest uppercase">
             <span class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-400"></i> Compra 100% Segura</span>
             <span class="flex items-center gap-2"><i class="fa-solid fa-bolt text-brand-400"></i> Acesso Imediato</span>
-            <span class="flex items-center gap-2"><i class="fa-regular fa-credit-card text-brand-400"></i> Em até 5x no Cartão</span>
+            <span class="flex items-center gap-2"><i class="fa-regular fa-credit-card text-brand-400"></i> Em até 12x no Cartão</span>
             <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-brand-400"></i> Garantia de 7 Dias</span>
         </div>
     </div>
 
-    <!-- Clean Navbar -->
-    <nav class="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 py-4 transition-all shadow-sm">
+    <!-- Clean Navbar (Oculto em Smartphones) -->
+    <nav class="hidden md:block bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 py-4 transition-all shadow-sm">
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <span class="font-heading font-extrabold text-xl md:text-2xl text-brand-dark tracking-tight">
-                    <i class="fa-solid fa-leaf text-brand-500 mr-1"></i> Isadora Roque
+                <span class="font-logo font-semibold text-2xl md:text-3xl text-brand-dark tracking-wide">
+                    <i class="fa-solid fa-leaf text-brand-500 mr-2 text-xl md:text-2xl"></i> Isadora Roque
                 </span>
             </div>
             <a href="#oferta" class="bg-brand-accent hover:bg-orange-600 text-white px-5 py-2.5 rounded-full font-bold transition flex items-center gap-2 text-sm shadow-md">
@@ -188,7 +189,7 @@
                             </div>
                             <div>
                                 <p class="font-heading font-bold text-gray-800 text-sm">Receitas Rápidas</p>
-                                <p class="text-xs text-gray-500">Prontas em 15 min</p>
+                                <p class="text-xs text-gray-500">Prontas em pouco tempo!</p>
                             </div>
                         </div>
                     </div>
@@ -533,7 +534,7 @@
                         
                         <div class="relative z-10 text-white">
                             <div class="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 text-green-400 px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
-                                <i class="fa-solid fa-lock"></i> Compra Segura Kirvano
+                                <i class="fa-solid fa-lock"></i> Compra Segura Kiwify
                             </div>
                             
                             <p class="text-gray-400 font-medium mb-2">Preço normal: <span class="line-through">R$ 97,00</span></p>
@@ -541,12 +542,12 @@
                             <p class="text-sm font-bold text-brand-400 uppercase tracking-widest mb-2">Por apenas</p>
                             <div class="flex justify-center items-start gap-1 mb-2">
                                 <span class="text-2xl font-bold mt-2">R$</span>
-                                <span class="text-[5rem] font-black leading-none font-heading text-white">47</span>
+                                <span class="text-[5rem] font-black leading-none font-heading text-white">37</span>
                                 <span class="text-2xl font-bold mt-2">,00</span>
                             </div>
-                            <p class="text-gray-400 text-sm mb-8">Ou em até 5x no cartão</p>
+                            <p class="text-gray-400 text-sm mb-8">Ou em até 12x no cartão</p>
                             
-                            <a href="#" class="w-full inline-block bg-brand-500 hover:bg-brand-400 text-white font-heading font-extrabold text-xl py-5 px-6 rounded-2xl shadow-xl transition transform hover:scale-105 hover:-translate-y-1">
+                            <a href="https://pay.kiwify.com.br/RIuJV00" class="w-full inline-block bg-brand-500 hover:bg-brand-400 text-white font-heading font-extrabold text-xl py-5 px-6 rounded-2xl shadow-xl transition transform hover:scale-105 hover:-translate-y-1">
                                 COMPRAR AGORA
                             </a>
                             
@@ -630,7 +631,7 @@
                         <i class="fa-solid fa-chevron-down text-brand-500 faq-icon transition-transform duration-300"></i>
                     </div>
                     <div class="faq-answer">
-                        <p class="text-gray-600 text-sm md:text-base leading-relaxed">O produto é 100% digital. Imediatamente após a confirmação do pagamento (em casos de Pix ou Cartão), você receberá no seu e-mail cadastrado o link seguro da Kirvano para acessar todo o material.</p>
+                        <p class="text-gray-600 text-sm md:text-base leading-relaxed">O produto é 100% digital. Imediatamente após a confirmação do pagamento (em casos de Pix ou Cartão), você receberá no seu e-mail cadastrado o link seguro da Kiwify para acessar todo o material.</p>
                     </div>
                 </div>
             </div>
@@ -677,7 +678,7 @@
             </button>
             <h2 class="font-heading text-3xl font-black text-brand-dark mb-6">Termos de Uso</h2>
             <div class="space-y-5 text-gray-600 text-sm md:text-base leading-relaxed">
-                <p><strong>1. Aceitação dos Termos</strong><br>Ao acessar e adquirir o material digital "Sabor de Crescer", você concorda em cumprir estes termos de serviço, bem como todas as leis e regulamentos aplicáveis. Se não concordar com algum destes termos, está proibido de usar ou acessar este material.</p>
+                <p><strong>1. Aceitação dos Termos</strong><br>Ao acessar e adquirir o material digital "Sabor de Crescer", você concorda em cumprir estes termos de serviço, bem como todas as locais e regulamentos aplicáveis. Se não concordar com algum destes termos, está proibido de usar ou acessar este material.</p>
                 <p><strong>2. Uso da Licença e Direitos Autorais</strong><br>É concedida permissão para baixar uma cópia do material para visualização transitória pessoal e não comercial. Esta é a concessão de uma licença, não uma transferência de título. Você não pode: modificar ou copiar os materiais; usá-los para qualquer finalidade comercial; remover quaisquer direitos autorais ou outras notações de propriedade; ou transferir os materiais para outra pessoa.</p>
                 <p><strong>3. Isenção de Responsabilidade (Saúde)</strong><br>Os materiais são fornecidos "como estão". O conteúdo é puramente educativo e não substitui a orientação médica ou nutricional presencial. Em caso de alergias alimentares (como APLV, doença celíaca, etc), o cuidador deve sempre ler os rótulos dos ingredientes e consultar o pediatra antes da introdução de novas receitas.</p>
                 <p><strong>4. Política de Reembolso</strong><br>Oferecemos uma garantia incondicional de 7 dias. O reembolso pode ser solicitado diretamente pela plataforma de pagamento dentro deste prazo, sem a necessidade de justificativa.</p>
@@ -695,7 +696,7 @@
             <div class="space-y-5 text-gray-600 text-sm md:text-base leading-relaxed">
                 <p><strong>Compromisso com a LGPD</strong><br>A sua privacidade é importante para nós. É nossa política respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar neste site, em total conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).</p>
                 <p><strong>Coleta de Dados</strong><br>Solicitamos informações pessoais, como nome e e-mail, apenas quando realmente precisamos delas para lhe fornecer o serviço (ex: envio do acesso ao e-book após a compra). Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento.</p>
-                <p><strong>Uso e Retenção</strong><br>Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Os dados de pagamento são processados por plataforma terceirizada segura (Kirvano), não armazenamos números de cartão de crédito no nosso banco de dados.</p>
+                <p><strong>Uso e Retenção</strong><br>Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Os dados de pagamento são processados por plataforma terceirizada segura (Kiwify), não armazenamos números de cartão de crédito no nosso banco de dados.</p>
                 <p><strong>Compartilhamento</strong><br>Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.</p>
             </div>
         </div>
